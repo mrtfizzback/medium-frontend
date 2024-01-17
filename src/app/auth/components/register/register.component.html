@@ -1,3 +1,4 @@
+<ng-container *ngIf="data$ | async as data">
 <div class="auth-page">
     <div class="container page">
       <div class="row">
@@ -6,7 +7,10 @@
           <p class="text-xs-center">
             <a routerLink="/login">Have an account?</a>
           </p>
-          BACKEND ERRORS HERE
+          <mc-backend-error-messages
+            *ngIf="data.backendErrors"
+            [backendErrors]="data.backendErrors"
+          ></mc-backend-error-messages>
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <fieldset class="form-group">
               <input
@@ -32,7 +36,7 @@
                 formControlName="password"
               />
             </fieldset>
-            <button type="submit" class="btn btn-lg btn-primary pull-xs-right">
+            <button type="submit" class="btn btn-lg btn-primary pull-xs-right" [disabled]="data.isSubmitting">
               Sign Up
             </button>
           </form>
