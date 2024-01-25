@@ -1,1 +1,1 @@
-This project'c goal was to apply and solidify Angular concepts, and mainly to replicate design patterns and best practices in a large Angular Webapp.
+The goal of this project was to reinforce Angular concepts by replicating design patterns and best practices found in large Angular web applications.
